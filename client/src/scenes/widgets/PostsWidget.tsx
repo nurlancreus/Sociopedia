@@ -21,7 +21,7 @@ export default function PostsWidget({
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(setPosts(posts));
+    if (posts) dispatch(setPosts(posts));
   }, [dispatch, posts]);
 
   if (!posts && isLoading) return <Spinner />;

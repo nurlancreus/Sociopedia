@@ -70,7 +70,6 @@ const globalSlice = createSlice({
 
 export const SelectMode = (state: RootState) => state.global.mode;
 export const SelectUser = (state: RootState) => state.global.user;
-export const SelectFriends = (state: RootState) => state.global.user?.friends;
 export const SelectToken = (state: RootState) => state.global.token;
 
 export const { setMode, setLogin, setLogout, setFriends, setPost, setPosts } =

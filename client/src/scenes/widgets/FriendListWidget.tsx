@@ -2,12 +2,11 @@ import { Typography, Box, useTheme } from "@mui/material";
 import { useSelector } from "react-redux";
 import { WidgetWrapper } from "@/components/WidgetWrapper";
 import Friend from "@/components/Friend";
-import { SelectFriends } from "@/state";
+import { SelectUser } from "@/state";
 
 export default function FriendListWidget() {
   const theme = useTheme();
-
-  const friends = useSelector(SelectFriends);
+  const { friends } = useSelector(SelectUser)!;
 
   if (!friends?.length) return null;
 
