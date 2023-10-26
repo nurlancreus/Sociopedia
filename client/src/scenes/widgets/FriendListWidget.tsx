@@ -1,24 +1,13 @@
-import { useEffect } from "react";
 import { Typography, Box, useTheme } from "@mui/material";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { WidgetWrapper } from "@/components/WidgetWrapper";
 import Friend from "@/components/Friend";
-import { SelectToken, setFriends } from "@/state";
-import { useGetFriendsQuery } from "@/state/api";
+import { SelectFriends } from "@/state";
 
-type FriendListWidgetProps = { userId: string };
-
-export default function FriendListWidget({ userId }: FriendListWidgetProps) {
+export default function FriendListWidget() {
   const theme = useTheme();
-  const token = useSelector(SelectToken)!;
-  const dispatch = useDispatch();
-  const { data: friends } = useGetFriendsQuery({ userId, token });
 
-  useEffect(() => {
-    if (friends) {
-      dispatch(setFriends(friends));
-    }
-  }, [friends, dispatch]);
+  const friends = useSelector(SelectFriends);
 
   if (!friends?.length) return null;
 

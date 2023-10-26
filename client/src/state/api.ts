@@ -37,17 +37,6 @@ export const api = createApi({
       }),
       providesTags: ["Users"],
     }),
-    getFriends: build.query<
-      Array<FriendType>,
-      { userId: UserType["_id"]; token: string }
-    >({
-      query: (params) => ({
-        url: `users/${params.userId}/friends`,
-        method: "GET",
-        headers: { Authorization: `Bearer ${params.token}` },
-      }),
-      providesTags: ["Friends"],
-    }),
     getPosts: build.query<
       Array<PostType>,
       { userId?: UserType["_id"]; token: string }
@@ -111,7 +100,6 @@ export const {
   useAuthRegisterMutation,
   useAuthLoggingInMutation,
   useGetUserQuery,
-  useGetFriendsQuery,
   useGetPostsQuery,
   useAddPostMutation,
   useUpdateLikeMutation,

@@ -42,7 +42,7 @@ export default function HomePage() {
           <Box flexBasis="26%" position={isNonMobile ? "sticky" : "static"} top="2rem">
             <AdvertWidget />
             <Box m="2rem 0" />
-            <FriendListWidget userId={_id} />
+            <FriendListWidget />
           </Box>
         )}
       </Box>
